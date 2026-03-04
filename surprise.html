@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Surprise 🎁</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">💗 About</a>
+        <a href="memories.html">📸 Memories</a>
+        <a href="timeline.html">⏳ Timeline</a>
+        <a href="surprise.html">🎁 Surprise</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="wrapper">
+        <h2 class="page-title glow-text">🎁 खोलो मेरा दिल 🎁</h2>
+        
+        <!-- Teaser Shayari -->
+        <div class="teaser-shayari glass-card">
+            <p class="teaser-text">दिल में छुपा है एक राज़,<br>
+            खोलो इस गिफ्ट को आज,<br>
+            अंदर क्या है चलो दिखाऊं,<br>
+            अपनी मोती को प्यार जताऊं...</p>
+        </div>
+        
+        <!-- MAIN GIFT BOX WITH INSIDE MESSAGE -->
+        <div class="gift-container">
+            <div class="magic-gift-box" id="magicGiftBox" onclick="openGift()">
+                <!-- Gift Lid -->
+                <div class="gift-lid" id="giftLid">
+                    <div class="lid-bow"></div>
+                    <div class="lid-ribbon"></div>
+                </div>
+                
+                <!-- Gift Body -->
+                <div class="gift-body" id="giftBody">
+                    <div class="body-ribbon-vertical"></div>
+                    <div class="body-ribbon-horizontal"></div>
+                    
+                    <!-- MESSAGE INSIDE GIFT BOX (CHHUPA HUA) -->
+                    <div class="inside-message" id="insideMessage">
+                        <div class="message-wrapper">
+                            <span class="inside-line1">You are my</span>
+                            <span class="inside-line2">MOTI</span>
+                            <div class="inside-hearts">
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gift Tag -->
+                    <div class="gift-tag">Click Me! 💝</div>
+                </div>
+                
+                <!-- Gift Shadow -->
+                <div class="gift-shadow"></div>
+            </div>
+            
+            <p class="click-instruction">✨ इस गिफ्ट को क्लिक करो - अंदर छुपा है प्यार ✨</p>
+        </div>
+        
+        <!-- Confetti Container -->
+        <div id="confetti-container" class="confetti-container"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="wave-text">💗 कहने को बहुत कुछ है, पर दिल में बस तू ही तू है 💗</p>
+    </footer>
+
+    <script>
+        function openGift() {
+            const giftBox = document.getElementById('magicGiftBox');
+            const giftLid = document.getElementById('giftLid');
+            const insideMessage = document.getElementById('insideMessage');
+            const instruction = document.querySelector('.click-instruction');
+            
+            // Pehle se open hai to fir se open na ho
+            if (giftBox.classList.contains('opened')) return;
+            
+            // Gift open animation
+            giftBox.classList.add('opened');
+            giftLid.classList.add('lid-open');
+            
+            // Message bahar aayega
+            setTimeout(() => {
+                insideMessage.classList.add('message-revealed');
+                instruction.innerHTML = '🎉 मुबारक हो! तुम्हें प्यार मिल गया 🎉';
+                
+                // Confetti explosion
+                createExplosion();
+                
+                // Extra hearts animation
+                createFloatingHearts();
+                
+            }, 500);
+            
+            // Vibrate on mobile
+            if (navigator.vibrate) {
+                navigator.vibrate([100, 50, 200]);
+            }
+        }
+        
+        function createExplosion() {
+            const colors = ['#ff69b4', '#ff1493', '#ffb8e0', '#c77dff', '#9f4dff', '#ff0000', '#ffa500', '#ffff00', '#00ff00', '#0000ff'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const piece = document.createElement('div');
+                    piece.className = 'explosion-piece';
+                    
+                    const size = Math.random() * 15 + 8;
+                    const left = Math.random() * 100;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const shape = Math.random() > 0.5 ? '50%' : '0';
+                    const rotation = Math.random() * 360;
+                    
+                    piece.style.width = size + 'px';
+                    piece.style.height = size + 'px';
+                    piece.style.left = left + '%';
+                    piece.style.top = '-20px';
+                    piece.style.backgroundColor = color;
+                    piece.style.borderRadius = shape;
+                    piece.style.transform = `rotate(${rotation}deg)`;
+                    piece.style.animation = `explosionFall ${Math.random() * 2 + 2}s linear forwards`;
+                    
+                    document.body.appendChild(piece);
+                    
+                    setTimeout(() => piece.remove(), 3000);
+                }, i * 10);
+            }
+        }
+        
+        function createFloatingHearts() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('i');
+                    heart.className = 'fas fa-heart floating-heart';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = '50%';
+                    heart.style.color = `hsl(${Math.random() * 50 + 320}, 100%, 70%)`;
+                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    heart.style.animation = `floatUp ${Math.random() * 2 + 2}s linear forwards`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 3000);
+                }, i * 50);
+            }
+        }
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shama Parween 🎂</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@700&family=Great+Vibes&family=Poppins:wght@800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">💗 About</a>
+        <a href="memories.html">📸 Memories</a>
+        <a href="timeline.html">⏳ Timeline</a>
+        <a href="surprise.html">🎁 Surprise</a>
+    </nav>
+
+    <!-- COUNTDOWN OVERLAY -->
+    <div id="countdown-overlay" class="countdown-overlay">
+        <div class="countdown-container">
+            <h2 class="countdown-title">✨ जन्मदिन की तैयारी ✨</h2>
+            <div class="countdown-wrapper">
+                <div id="countdown-number" class="countdown-number">10</div>
+            </div>
+            <p class="countdown-message">कुछ ही पलों में शुरू होगा जादू...</p>
+            <div class="countdown-hearts">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- BIRTHDAY WISH - MD ABU HASAN to SHAHNA PARWEEN -->
+    <div id="birthday-wish" class="birthday-wish-container" style="display: none;">
+        <div class="birthday-wish-content">
+            <div class="wish-background">
+                <div class="wish-particle"></div>
+                <div class="wish-particle"></div>
+                <div class="wish-particle"></div>
+                <div class="wish-particle"></div>
+                <div class="wish-particle"></div>
+            </div>
+            
+            <div class="wish-main">
+                <!-- From - MD Abu Hasan -->
+                <div class="wish-from">
+                    <span class="from-text">💝 MD ABU HASAN 💝</span>
+                </div>
+                
+                <!-- Wishing Text -->
+                <div class="wish-heart">
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                </div>
+                
+                <div class="wish-message-line">
+                    <span class="message-text">Wishing Happy Birthday to</span>
+                </div>
+                
+                <!-- To - Shahnaz Parween (Main Birthday Person) -->
+                <div class="wish-name-container">
+                    <span class="wish-name">SHAMA</span>
+                    <span class="wish-name">PARWEEN</span>
+                </div>
+                
+                <div class="wish-decoration">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                
+                <p class="wish-message">तुम्हारे बिना अधूरा हूँ, तुम ही मेरी पूर्णता हो 💕</p>
+            </div>
+            
+            <div class="wish-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <p class="wish-continue" id="continue-text">जारी रखने के लिए क्लिक करें ➡️</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (Home Page) -->
+    <div id="main-content" style="display: none;">
+        <div class="hero">
+            <h1 class="glow-text">Happy Birthday <span class="name rainbow-text">Shama parween</span> ❤️</h1>
+            
+            <div class="shayari-box glass-card">
+                <div class="shayari-container">
+                    <div class="stylish-shayari-line">"तेरी आँखों में खो जाऊं,</div>
+                    <div class="stylish-shayari-line">तेरी बाहों में सो जाऊं,</div>
+                    <div class="stylish-shayari-line">तू मिली तो मिल गया जहाँ,</div>
+                    <div class="stylish-shayari-line">अब और क्या पाऊं..."</div>
+                </div>
+            </div>
+            
+            <div id="typing-text" class="typing-pro"></div>
+            
+            <div class="hearts-3d">
+                <i class="fas fa-heart heart-3d"></i>
+                <i class="fas fa-heart heart-3d"></i>
+                <i class="fas fa-heart heart-3d"></i>
+                <i class="fas fa-heart heart-3d"></i>
+                <i class="fas fa-heart heart-3d"></i>
+            </div>
+            
+            <button class="magnetic-btn ripple" onclick="showDailyQuote()">
+                <i class="fas fa-heart"></i> Daily Love Quote
+            </button>
+            
+            <div id="daily-quote" class="daily-quote glass-card"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="footer" style="display: none;">
+        <p class="wave-text">💗 तेरे बिना अधूरा हूँ, तू ही मेरी पूर्णता है 💗</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
